@@ -1,5 +1,8 @@
 const grid = document.querySelector('#grid');
-const cardsChosen = [];
+const resultDisplay = document.querySelector('#result');
+let cardsChosen = [];
+let cardsChosenIds = [];
+let cardsWon = [];
 
 // const cardArray = [
 //     {
@@ -117,19 +120,46 @@ function createBoard() {
     }
 }
 
-createBoard()
-
 function checkMatch() {
-    console.log('check for match!')
+    // console.log('check for match!')
+    const cards = document.querySelectorAll('#grid img')
+    const optionOneId = cardsChosenIds[0]
+    const optionTwoId = cardsChosenIds[1]
+
+    if (optionOneId == optionTwoId) {
+        alert("You have clicked the same image twice!")
+        cards[optionOneId].setAttribute('src', 'images/stardew-foods/use as blank/Stardrop.png')
+        cards[optionTwoId].setAttribute('src', 'images/stardew-foods/use as blank/Stardrop.png')
+    } else if (cardsChosen[0] === cardsChosen[1]) {
+        alert("It's a match!")
+        cards[optionOneId].setAttribute('src', 'images/white.png')
+        cards[optionTwoId].setAttribute('src', 'images/white.png')
+        cards[optionOneId].removeEventListener('click', flipCard)
+        cards[optionTwoId].removeEventListener('click', flipCard)
+        cardsWon.push(cardsChosen)
+    } else {
+        alert("Sorry, no match.")
+        cards[optionOneId].setAttribute('src', 'images/stardew-foods/use as blank/Stardrop.png')
+        cards[optionTwoId].setAttribute('src', 'images/stardew-foods/use as blank/Stardrop.png')
+    }
+    cardsChosen = []
+    cardsChosenIds = []
+    resultDisplay.textContent = cardsWon.length
+    if (cardsWon.length === stardewArray.length/2) {
+        resultDisplay.textContent = "Congratulations! You've found all of the matching cards."
+    }
 }
 
 function flipCard() {
     let cardId = this.getAttribute('data-id');
     cardsChosen.push(stardewArray[cardId].name)
-    console.log('clicked', cardId)
-    console.log(cardsChosen)
+    cardsChosenIds.push(cardId)
+    // console.log('clicked', cardId)
+    // console.log("cardsChosen: ", cardsChosen)
     this.setAttribute('src', stardewArray[cardId].img)
     if (cardsChosen.length === 2) {
         setTimeout(checkMatch, 500)
     }
 }
+
+createBoard()
