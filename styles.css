@@ -1,11 +1,65 @@
+@import url('https://fonts.googleapis.com/css2?family=Kaisei+HarunoUmi&family=Lato:wght@300&display=swap');
+
+html {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+}
+
+body {
+    font-family: 'Lato', sans-serif;
+    color: rgb(0, 0, 0);
+    font-weight: 700;
+}
+
+#background video {
+    position: fixed;
+    right: 0;
+    bottom: 0;
+    min-width: 100%;
+    min-height: 100%;
+}
+
+#game-container {
+    flex-wrap: wrap;
+    position: relative;
+    width: auto;
+    max-width: 900px;
+    padding: 20px 30px;
+    border-radius: 15px;
+    background-color: rgba(255, 255, 255, 0.5);
+    box-shadow: 0 10px 10px 10px rgba(0, 0, 0, 0.2);
+}
+
 #grid {
     width: 400px;
     height: 300px;
-    display: flex;
-    flex-wrap: wrap;
+    padding: 20px;
 }
 
 img {
     width: 100px;
     height: 100px;
+}
+
+footer {
+    text-align: center;
+    background-color: rgba(255, 255, 255, 0.5);
+    /* last number value changed from 255; opacity ranges from 
+    0.0-1.0 (complete transparency to no transparency) */
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+}
+
+a {
+    color: rgb(0, 89, 172);
+    text-decoration: none;
+}
+
+a:hover {
+    opacity: 50%;
+    text-decoration: none;
 }

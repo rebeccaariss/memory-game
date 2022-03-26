@@ -8,11 +8,23 @@
     <link rel="stylesheet" type="text/css" href="styles.css">
 </head>
 <body>
-    
-    <h3>Score: <span id="result"></span></h3>
-
-    <div id="grid"></div>
-
+    <div id="background">
+        <video autoplay loop muted poster="https://i.imgur.com/kbD3jrx.gifv">
+            <source src="images/stardew-foods/background/farm.mp4" type="video/mp4">
+            <!-- recommended to have multiple formats for different browsers, phones, etc -->
+        </video>
+    </div>
+    <div id="game-container">
+        <div id="score">
+            <h3>Score: <span id="result"></span></h3>
+        </div>
+        <div id="cards">
+            <div id="grid"></div>
+        </div>
+    </div>
+    <footer>
+        <p>Background artwork by <a href="https://www.dadozilla.com/" target="_blank">Ed Pulella</a> via <a href="https://www.reddit.com/r/StardewValley/comments/fylhzh/seasons_of_stardew_valley_all_the_stardew_valley/" target="_blank">Reddit</a></p>
+    </footer>
     <script src="app.js"></script>
 </body>
 </html>
