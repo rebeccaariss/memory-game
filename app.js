@@ -132,8 +132,8 @@ function checkMatch() {
         cards[optionTwoId].setAttribute('src', 'images/stardew-foods/use as blank/Stardrop.png')
     } else if (cardsChosen[0] === cardsChosen[1]) {
         alert("It's a match!")
-        cards[optionOneId].setAttribute('src', 'images/white.png')
-        cards[optionTwoId].setAttribute('src', 'images/white.png')
+        cards[optionOneId].setAttribute('id', 'matched-success')
+        cards[optionTwoId].setAttribute('id', 'matched-success')
         cards[optionOneId].removeEventListener('click', flipCard)
         cards[optionTwoId].removeEventListener('click', flipCard)
         cardsWon.push(cardsChosen)

@@ -46,10 +46,18 @@ img {
 
 img:hover {
     filter: brightness(110%);
+    cursor: pointer;
 }
 
 img:active {
     transform: translate(0, 0.3rem);
+}
+
+#matched-success {
+    width: 100px;
+    height: 100px;
+    padding: 2.5px;
+    visibility: hidden;
 }
 
 footer {
