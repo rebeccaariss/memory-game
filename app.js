@@ -1,5 +1,8 @@
 const grid = document.querySelector('#grid');
 const resultDisplay = document.querySelector('#result');
+const modal = document.querySelector('#modal');
+const modalClose = document.querySelectorAll('close-modal');
+let alertMessage = document.querySelector('#alert-message');
 let cardsChosen = [];
 let cardsChosenIds = [];
 let cardsWon = [];
@@ -110,6 +113,17 @@ const stardewArray = [
 
 stardewArray.sort(() => 0.5 - Math.random())
 
+// Show modal, focus on input:
+function showModal(message) {
+    modal.classList.add('show-modal');
+    alertMessage.innerHTML = message
+}
+
+function closeModal() {
+    modalClose.addEventListener('click', () => modal.classList.remove('show-modal'));
+    window.addEventListener('click', (event) => (event.target === modal ? modal.classList.remove('show-modal') : false));
+}
+
 function createBoard() {
     for (let i = 0; i < stardewArray.length; i++) {
         const card = document.createElement('img')
@@ -127,18 +141,18 @@ function checkMatch() {
     const optionTwoId = cardsChosenIds[1]
 
     if (optionOneId == optionTwoId) {
-        alert("You have clicked the same image twice!")
+        showModal("You have clicked the same image twice!")
         cards[optionOneId].setAttribute('src', 'images/stardew-foods/use as blank/Stardrop.png')
         cards[optionTwoId].setAttribute('src', 'images/stardew-foods/use as blank/Stardrop.png')
     } else if (cardsChosen[0] === cardsChosen[1]) {
-        alert("It's a match!")
+        showModal("It's a match!")
         cards[optionOneId].setAttribute('id', 'matched-success')
         cards[optionTwoId].setAttribute('id', 'matched-success')
         cards[optionOneId].removeEventListener('click', flipCard)
         cards[optionTwoId].removeEventListener('click', flipCard)
         cardsWon.push(cardsChosen)
     } else {
-        alert("Sorry, no match.")
+        showModal("Sorry, no match.")
         cards[optionOneId].setAttribute('src', 'images/stardew-foods/use as blank/Stardrop.png')
         cards[optionTwoId].setAttribute('src', 'images/stardew-foods/use as blank/Stardrop.png')
     }
@@ -163,3 +177,4 @@ function flipCard() {
 }
 
 createBoard()
+closeModal()

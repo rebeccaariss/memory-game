@@ -5,21 +5,35 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Memory Game</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
     <link rel="stylesheet" type="text/css" href="styles.css">
 </head>
 <body>
+    <!-- Video background: -->
     <div id="background">
         <video autoplay loop muted poster="https://i.imgur.com/kbD3jrx.gifv">
             <source src="images/stardew-foods/background/farm.mp4" type="video/mp4">
             <!-- recommended to have multiple formats for different browsers, phones, etc -->
         </video>
     </div>
+    <!-- Game score and cards: -->
     <div id="game-container">
         <div id="score">
             <h3>Score: <span id="result"></span></h3>
         </div>
         <div id="cards">
             <div id="grid"></div>
+        </div>
+    </div>
+    <!-- Alerts modal (dynamically applied instead of default window.alert): -->
+    <div class="modal-container" id="modal">
+        <div class="modal">
+            <i class="fas fa-times close-icon close-modal"></i>
+            <div class="modal-header"></div>
+            <div class="modal-content">
+                <span id="alert-message"></span>
+                <button type="submit" class="close-modal">OK</button>
+            </div>
         </div>
     </div>
     <footer>
