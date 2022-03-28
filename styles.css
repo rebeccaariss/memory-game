@@ -33,14 +33,23 @@ body {
 }
 
 #grid {
-    width: 400px;
-    height: 300px;
+    width: 420px;
+    height: 320px;
     padding: 20px;
 }
 
 img {
     width: 100px;
     height: 100px;
+    padding: 2.5px;
+}
+
+img:hover {
+    filter: brightness(110%);
+}
+
+img:active {
+    transform: translate(0, 0.3rem);
 }
 
 footer {
