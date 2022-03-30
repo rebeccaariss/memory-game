@@ -1,7 +1,9 @@
 const grid = document.querySelector('#grid');
 const resultDisplay = document.querySelector('#result');
 const modal = document.querySelector('#modal');
-const modalClose = document.querySelectorAll('close-modal');
+const modalForm = document.querySelector('#modal-form');
+const xButton = document.querySelector("i");
+const okButton = document.querySelector("button");
 let alertMessage = document.querySelector('#alert-message');
 let cardsChosen = [];
 let cardsChosenIds = [];
@@ -119,8 +121,11 @@ function showModal(message) {
     alertMessage.innerHTML = message
 }
 
-function closeModal() {
-    modalClose.addEventListener('click', () => modal.classList.remove('show-modal'));
+function createModal() {
+    // Close via buttons:
+    xButton.addEventListener('click', () => modal.classList.remove('show-modal'));
+    okButton.addEventListener('click', () => modal.classList.remove('show-modal'));
+    // Close by clicking outside of the modal (window object):
     window.addEventListener('click', (event) => (event.target === modal ? modal.classList.remove('show-modal') : false));
 }
 
@@ -177,4 +182,4 @@ function flipCard() {
 }
 
 createBoard()
-closeModal()
+createModal()

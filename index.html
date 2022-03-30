@@ -28,12 +28,14 @@
     <!-- Alerts modal (dynamically applied instead of default window.alert): -->
     <div class="modal-container" id="modal">
         <div class="modal">
-            <i class="fas fa-times close-icon close-modal"></i>
-            <div class="modal-header"></div>
-            <div class="modal-content">
-                <span id="alert-message"></span>
-                <button type="submit" class="close-modal">OK</button>
-            </div>
+            <form id="modal-form">
+                <i class="fas fa-times close-icon"></i>
+                <div class="modal-header"></div>
+                <div class="modal-content">
+                    <span id="alert-message"></span>
+                    <button type="submit">OK</button>
+                </div>
+            </form>
         </div>
     </div>
     <footer>
