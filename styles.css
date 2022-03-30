@@ -2,7 +2,7 @@
 
 :root {
     --border-radius: 15px;
-    --primary-color: #61616e;
+    --primary-color: #636379;
 }
 
 html {
@@ -109,10 +109,9 @@ img:active {
 .close-icon {
     float: right;
     color: white;
-    font-size: 24px;
-    position: relative;
-    top: 13px;
-    right: 13px;
+    font-size: 22px;
+    margin: 5px;
+    margin-right: 10px;
     cursor: pointer;
 }
 
@@ -131,6 +130,11 @@ h3 {
     background: whitesmoke;
 }
 
+#alert-message {
+    display: flex;
+    justify-content: center;
+}
+
 button {
     cursor: pointer;
     color: white;
@@ -139,7 +143,8 @@ button {
     width: 100px;
     border: none;
     border-radius: var(--border-radius);
-    margin-top: 10px;
+    margin-bottom: 10px;
+    float: right;
 }
 
 button:hover {
